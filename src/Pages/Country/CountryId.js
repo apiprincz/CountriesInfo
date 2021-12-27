@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 // import {Link} from "react-router-dom"
-import { useParams, Link } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import "./CountryId.css";
 import Loader from "../../Components/Loader/Loader"
 
-const AppContainer = styled.li`
-  width: 50%;
-  padding: 40px 0px 0px 25px;
-`;
+// const AppContainer = styled.li`
+//   width: 50%;
+//   padding: 40px 0px 0px 25px;
+// `;
 const AppWrapper = styled.div`
   // height:calc(100vh - 150px);
   height:100vh;

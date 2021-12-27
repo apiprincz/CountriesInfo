@@ -35,11 +35,11 @@ const Div = styled.div`
   height:100vh
 
 `
-const Select = styled.select`
-@media (max-width: 512px) {
-    margin-top:20px
-  }
-`
+// const Select = styled.select`
+// @media (max-width: 512px) {
+//     margin-top:20px
+//   }
+// `
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);

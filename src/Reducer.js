@@ -7,12 +7,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case "INCREMENT":
-            return { ...state, num: state.num + 1 }
+       
         case "FetchData":
             return { ...state, data: action.data, }
-        case "FetchCountryData":
-            return { ...state, data: action.data, }
+        
         case "ERROR":
             return { ...state, error: action.msg }
         default:

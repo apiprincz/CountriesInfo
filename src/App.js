@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
@@ -8,8 +8,7 @@ import Header from "./Components/Header/Header";
 // import { Provider } from "react-redux";
 // import { createStore } from 'redux';
 // import { useSelector } from 'react-redux';
-import { connect } from "react-redux";
-import { fetchData } from "./Actions";
+
 
 const App = () => {
 

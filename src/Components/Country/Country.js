@@ -44,9 +44,9 @@ import {Link} from "react-router-dom"
         margin:0
 
     `
-    const a = styled.a`
-        text-decoration:none;
-    `
+    // const a = styled.a`
+    //     text-decoration:none;
+    // `
 
 const Country = (props) => {
 
