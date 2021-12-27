@@ -65,7 +65,7 @@ const Header = (props) => {
           <Theme style={{display:"flex", alignItems:"flex-end"}} onClick={() => props.handleTheme()}>
           {/* <FontAwesomeIcon icon={faMoon} /> */}
           
-          {props.theme ? <FontAwesomeIcon icon={["fas", "moon"]} /> : <FontAwesomeIcon icon={["far", "moon"]} />}
+          {props.theme ? <FontAwesomeIcon style={{color:"white"}} icon={["fas", "moon"]} /> : <FontAwesomeIcon  icon={["far", "moon"]} />}
           
           <span style={{paddingLeft:"5px"}}>{props.theme ? "Dark Mode":"Light Mode"}</span>
           </Theme>
