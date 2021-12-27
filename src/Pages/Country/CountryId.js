@@ -96,7 +96,10 @@ const CountryId = () => {
 
   if (error) {
     return <div style={{height:"100vh", textAlign:"center", display:"flex", alignItems:"center", justifyContent:"center"}}>
-        Page Not Found...Try Reconnecting
+        <div style={{textAlign:"center"}}>
+         Page Not Found...Try Reconnecting
+
+         </div>
         </div>;
   } else if (!isLoaded) {
     return <LoaderWrapper >

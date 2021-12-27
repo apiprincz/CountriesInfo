@@ -134,9 +134,12 @@ const Home = () => {
 
   if (error) {
     return (
-      <div>
+      <div >
          <Widgets value={filter} handleChange={(e) => handleChange(e)} handleSelect= {(e) => handleSelect(e)}/>
-        Page Not Found...Try Reconnecting
+         <div style={{textAlign:"center"}}>
+         Page Not Found...Try Reconnecting
+
+         </div>
       </div>
     );
   } else if (!isLoaded) {
