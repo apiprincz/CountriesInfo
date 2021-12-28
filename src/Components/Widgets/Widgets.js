@@ -16,14 +16,16 @@ const Div = styled.div`
         flex-direction: column;
       }
     @media (max-width: 512px) {
-        padding:20px 25px 0px;
-        
+        padding:20px 0px 0px;
+        width:80%;
+        margin:0 auto
       }
   `
 
   const Select = styled.select`
 @media (max-width: 512px) {
-    margin-top:20px
+    margin-top:20px;
+    width:60%;
   }
 `
 

@@ -54,7 +54,8 @@ input:active{
 }
 @media (max-width: 512px) {
   input {
-    padding: 10px 20px;
+    padding: 10px 20px 10px 30px;
+    width:80%
   }
 }
 .App-header {
