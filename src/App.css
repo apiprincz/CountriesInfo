@@ -23,6 +23,9 @@ a {
 .App.darkTheme a.backLink {
   background-color: black;
 }
+.App.darkTheme a.backLink > svg{
+  color: white;
+}
 input, select{
   border: none;
   background-color: white;
