@@ -13,7 +13,8 @@ const Ul = styled.ul`
   flex-wrap: wrap;
   justify-content:center;
   padding:0px 0px 30px;
-  margin-bottom:0
+  margin-bottom:0;
+  min-height:100vh
 `;
 const Div = styled.div`
     display:flex;
@@ -108,10 +109,11 @@ const Home = () => {
 
     console.log("isSelectedLength" + isSelected.length)
     console.log("isSelected" + isSelected)
-    if (ev.target.value === "africa" || "europe" || "america" || "oceania" || "asia") {
+    if (ev.target.value === "africa" || "europe" || "oceania" || "asia") {
         console.log("true")
         console.log(isSelected)
         fetch(`https://restcountries.com/v2/region/${ev.target.value}`)
+        // fetch(`https://restcountries.com/v2/continent/${ev.target.value}`)
         .then((res) => res.json())
       .then(
         (data) => {
@@ -125,10 +127,30 @@ const Home = () => {
         (error) => {
           setIsLoaded(true);
           setError(error);
-          dispatch({ type: "ERROR", error: "Not Found" });
+          dispatch({ type: "ERROR", error: error });
         }
       );
     }
+    else if(ev.target.value === "america"){
+      fetch(`https://restcountries.com/v3/region/${ev.target.value}`)
+      // fetch(`https://restcountries.com/v3/continent/${ev.target.value}`)
+      .then((res) => res.json())
+    .then(
+      (data) => {
+      //   dispatch({ type: "FetchData", data: data });
+      setRegion(data)
+      console.log("region" + [region])
+        setIsLoaded(true);
+        // setCountry(data);
+        console.log(data);
+      },
+      (error) => {
+        setIsLoaded(true);
+        setError(error);
+        dispatch({ type: "ERROR", error: error });
+      }
+    );
+    } else return
   }
   
 
@@ -145,64 +167,20 @@ const Home = () => {
   } else if (!isLoaded) {
     return (
       <LoaderWrapper>
-         <Widgets value={filter} handleChange={(e) => handleChange(e)} handleSelect= {(e) => handleSelect(e)}/>
-
-    {/* <Div>
-        <div style={{position:"relative"}}>
-        <FontAwesomeIcon icon={faSearch} className="searchIcon" />
-        <input value={filter} onChange={(e) => handleChange(e)} placeholder="Search for a country" />
-
-        </div>
-        
-        <Select
-                
-                style={{ height: "35px" }}
-                onChange={(e) => handleSelect(e)}
-            >
-                <option value="" disabled selected>Filter By Region</option>
-                <option value="africa">Africa</option>
-                <option value="america">America</option>
-                <option value="asia">Asia</option>
-                <option value="europe">Europe</option>
-                <option value="oceania">Oceania</option>
-    </Select>
-    </Div> */}
-        {/* Loading... */}
-        <div style={{textAlign:"center", position:"absolute", top:"50%", left:"50%"}}>
+         <Widgets value={filter} handleChange={(e) => handleChange(e)} handleSelect= {(e) => handleSelect(e)}/>    
         <Loader/>
-
-        </div>
       </LoaderWrapper>
     );
   } else {
     return (
       <div>
          <Widgets value={filter} handleChange={(e) => handleChange(e)} handleSelect= {(e) => handleSelect(e)}/>
-        {/* <Div>
-        <div style={{position:"relative"}}>
-          <FontAwesomeIcon icon={faSearch} className="searchIcon" />
-          <input value={filter} onChange={(e) => handleChange(e)} placeholder="Search for a country" />
-
-            </div> 
-          <Select
-                
-                  style={{ height: "35px" }}
-                  onChange={(e) => handleSelect(e)}
-                >
-                    <option value="" disabled selected>Filter By Region</option>
-                  <option value="africa">Africa</option>
-                  <option value="america">America</option>
-                  <option value="asia">Asia</option>
-                  <option value="europe">Europe</option>
-                  <option value="oceania">Oceania</option>
-                </Select>
-        </Div> */}
         {isSelected.length > 0 ? <Div> <h3>Search Results For <span style={{textTransform:"Capitalize"}}>{isSelected}</span>({region.length})</h3></Div>: ""}
         {isSelected.length > 0 ?
          ( <Ul>
-          {region.map((region) => (
+          {region.map((region,index) => (
             <Country
-              key={region.id}
+              key={index}
               flag={region.flags.svg}
               name={region.name}
               population={region.population}
@@ -212,9 +190,9 @@ const Home = () => {
           ))}
         </Ul>):  (<>
         {filter.length===0 && <Ul>
-          {country.map((country) => (
+          {country.map((country,index) => (
             <Country
-              key={country.id}
+              key={index}
               flag={country.flags.svg}
               name={country.name}
               population={country.population}
@@ -224,9 +202,9 @@ const Home = () => {
           ))}
         </Ul>}
         {filter.length > 0 && <Ul>
-          {searchData.map((country) => (
+          {searchData.map((country, index) => (
             <Country
-              key={country.id}
+              key={index}
               flag={country.flags.svg}
               name={country.name}
               population={country.population}

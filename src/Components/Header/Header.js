@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas} from '@fortawesome/free-solid-svg-icons'
+import {Link} from "react-router-dom"
 
 library.add(far, fas)
 
@@ -61,7 +62,7 @@ const Header = (props) => {
 
     return(
         <Div $mode={props.theme ? "darkTheme" :"lightTheme"}>
-          <h3>Where in the World?</h3>
+          <a href="/"><h3>Where in the World?</h3></a>
           <Theme style={{display:"flex", alignItems:"flex-end"}} onClick={() => props.handleTheme()}>
           {/* <FontAwesomeIcon icon={faMoon} /> */}
           

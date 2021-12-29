@@ -103,10 +103,10 @@ const CountryId = () => {
         </div>;
   } else if (!isLoaded) {
     return <LoaderWrapper >
-        <div style={{textAlign:"center", position:"absolute", top:"50%", left:"50%"}}>
+        
 
         <Loader/>
-        </div>
+      
     </LoaderWrapper>;
   } else {
     return (
@@ -120,7 +120,7 @@ const CountryId = () => {
         
         {country.map((country) => {
           return (
-            <Div>
+            <Div key={country.name}>
               <Img src={country.flag} alt="flag" />
               <div className="categoryWrapper">
                 <AppHeader>{country.name}</AppHeader>

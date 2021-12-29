@@ -59,9 +59,9 @@ const Country = (props) => {
             <Img src={props.flag} alt=""/>
             <Div >
                 <Link to={`/${props.name}`}>
-                    <a href={`/${props.name}`}>
+                    {/* <a href={`/${props.name}`}> */}
                     <AppHeader>{props.name}</AppHeader>
-                    </a>
+                    {/* </a> */}
                 </Link>
                 <div>
                    <Para> <AppCategory> Population </AppCategory>: {props.population.toLocaleString().replace(/,/g, ".")}</Para> 

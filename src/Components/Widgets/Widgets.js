@@ -43,8 +43,10 @@ const Widgets = (props) => {
                 
                   style={{ height: "35px" }}
                   onChange={(e) => props.handleSelect(e)}
+                  value={props.value}
+                  
                 >
-                    <option value="" disabled selected>Filter By Region</option>
+                    <option value="" disabled>Filter By Region</option>
                   <option value="africa">Africa</option>
                   <option value="america">America</option>
                   <option value="asia">Asia</option>
